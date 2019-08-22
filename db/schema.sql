@@ -1,3 +1,5 @@
+DROP DATABASE IF EXISTS i1m1v7alns6rfh9d;
+CREATE DATABASE i1m1v7alns6rfh9d;
 USE i1m1v7alns6rfh9d;
 
 CREATE TABLE `users` (
