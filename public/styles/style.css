@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css?family=Monoton|Roboto');
+
+html, body {
+    min-width: 320px;
+    height: 100vh;
+    margin: 0;
+}
+body {
+    background-image: url(../assets/images/background1.jpg);
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 60% 10% 4% 5%
+    ;
+    grid-template-areas: 
+        "header"
+        "game"
+        "message"
+        "buttons"
+        "footer";
+}
+
+h1 {
+    font-size: 25px;
+    margin-top: 15px;
+}
+
+#gameArea {
+    grid-area: game;
+    display: grid;
+    grid-template-columns: 20% 60% 20%;
+    grid-template-rows: 10% 35% 10% 35% 10%;
+    grid-template-areas: 
+        "dwins dname dscore"
+        "dcards dcards dcards"
+        "wins . score"
+        "pcards pcards pcards"
+        "pwins pname pscore";
+    align-items: stretch;
+}
+
+#gameButtons {
+    grid-area: buttons;
+}
+
+footer {
+    grid-area: footer;
+} 
+
+#dealer {
+    grid-area: dname;
+}
+
+#dealerWins {
+    grid-area: dwins
+}
+
+#dealerHand {
+    grid-area: dcards;
+}
+
+#dealerScoreboard {
+    grid-area: dscore;
+}
+
+#winsTitle {
+    grid-area: wins;
+}
+
+#scoreTitle {
+    grid-area: score;
+}
+
+#winsTitle, #scoreTitle, #playerHand, #dealerHand {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+#winsTitle, #scoreTitle{
+    font-size: 12px;
+}
+
+#dealerScoreboard, #dealerWins, #dealer, #playerScoreboard, #playerWins, #player {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#player {
+    grid-area: pname;
+}
+
+#playerWins {
+    grid-area: pwins;
+}
+
+#playerHand {
+    grid-area: pcards;
+}
+
+#playerScoreboard {
+    grid-area: pscore;
+}
+
+#messageBoard {
+    grid-area: message;
+}
+
+#gameStatus {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.card {
+    display: inline-block;
+    border-radius: 3px;
+    width: 42px;
+    height: 70px;
+    margin: 1px;
+    /* margin-left: -30px; */
+    box-sizing: border-box;
+}
+
+.spades, .clubs {
+    border: 3px solid black;
+    color: black;
+}
+
+.hearts, .diamonds {
+    border: 3px solid red;
+    color: red;
+}
+
+.card-value {
+    font-size: 25px;
+    text-align: center;
+    align-items:center;
+    height: 50%;
+    box-sizing: border-box;
+}
+
+.top-suit {
+    font-size: 12px;
+    text-align: left;
+    padding-left: 5px;
+    height: 25%;
+    align-items:center;
+    box-sizing: border-box;
+}
+
+.bottom-suit {
+    font-size: 12px;
+    text-align: right;
+    padding-right: 5px;
+    height: 25%;
+    align-items:center;
+    box-sizing: content-box;
+}
+
+.gameButtons {
+    display: none;
+}
+
+h5 {
+   font-size: 8px;
+   margin-top: 10px;
+   margin-bottom: 10px; 
+}
+
+#banner {
+    font-family: 'Monoton', cursive;
+}
