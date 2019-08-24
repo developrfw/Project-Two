@@ -1,33 +1,24 @@
-<div id="home">
-  <div class="container">
-    <div class="row">
-      <div class="col-8 offset-2">
-        <h1>{{msg}}</h1>
-        <h2>This is our Home Page!</h2>
-        <form class="clearfix mb-4" action="POST">
-          <div class="form-group">
-            <label for="example-text">Example Text</label>
-            <input type="text" id="example-text" class="form-control" aria-describedby="example-text" placeholder="Enter Example Text">
-          </div>
-          <div class="form-group">
-            <label for="example-description">Example Description</label>
-            <textarea class="form-control" id="example-description" aria-describedby="example-description" placeholder="Enter Example Description"></textarea>
-          </div>
-          <button id="submit" class="btn btn-primary float-right">Submit</button>
-        </form>
-        <h3>Examples:</h3>
-        <ul id="example-list" class="list-group">
-          {{#each examples}}
-          <li data-id="{{this.id}}" class="list-group-item">
-            <a href="example/{{this.id}}">{{this.text}}</a>
-            <button class="btn btn-danger float-right delete">ｘ</button>
-          </li>
-          {{/each}}
-        </ul>
-      </div>
-    </div>
-  </div>
-</div>
+ <div class="container" id ="dealer">
+            <div class="d-card1" id ="dc1">   </div>
+            <div class="d-card2" id ="dc2">   </div>
+            <div class="d-card3" id ="dc3">   </div>
+            <div class="d-card4" id ="dc4">   </div>  
+            <div class="d-card5" id ="dc5">   </div>
+        </div>
+
+        <div class="container" id ="player">
+            <div class="p-card1" id ="pc1">    </div>
+            <div class="p-card2" id ="pc2">    </div>    
+            <div class="p-card3" id ="pc3">    </div>
+            <div class="p-card4" id ="pc4">    </div>
+            <div class="p-card5" id ="pc5">    </div>
+        </div>
+
+        <div class="container" id ="hit-stay">
+            <a class="waves-effect waves-light btn" id = "hit">Hit</a>     
+            <a class="waves-effect waves-light btn" id = "stay">Stay</a>  
+        </div>
+
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
