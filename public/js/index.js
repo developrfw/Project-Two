@@ -5,45 +5,393 @@
 // var $exampleList = $("#example-list");
 
 const deckOfNumbers = [];
-const deckofSuits = [1, 2, 3, 4];
+const deckOfSuits = [];
 
+// this will hold the random card properties
+let cardProperties = {};
+// this will hold the current score
+let playerScore = 0;
+let dealerScore = 0;
+
+// push 13 numbers to deckOfNumbers
 for (let i = 1; i <= 13; i++) {
   deckOfNumbers.push(i);
 }
-let cardProperties = {};
-let scoreCounter = 0;
-
-// $("#hit").click(() => {
-let randomNumber =
-  deckOfNumbers[Math.floor(Math.random() * deckOfNumbers.length)];
-// Chooses a random suit
-let randomSuit = deckofSuits[Math.floor(Math.random() * deckofSuits.length)];
-if (randomSuit === 1) {
-  cardProperties = {
-    cardNumber: randomNumber,
-    cardSuit: "Hearts"
-  };
-} else if (randomSuit === 2) {
-  cardProperties = {
-    cardNumber: randomNumber,
-    cardSuit: "Spades"
-  };
-} else if (randomSuit === 3) {
-  cardProperties = {
-    cardNumber: randomNumber,
-    cardSuit: "Clubs"
-  };
-} else if (randomSuit === 4) {
-  cardProperties = {
-    cardNumber: randomNumber,
-    cardSuit: "Diamonds"
-  };
-} else {
-  console.log("something went wrong");
+// push 4 numbers to deckOfSuits
+for (let i = 1; i <= 4; i++) {
+  deckOfSuits.push(i);
 }
-console.log(cardProperties);
-scoreCounter = scoreCounter + cardProperties.cardNumber;
 
+// REPLACE THIS FOR LOOP WITH ON CLICK ONCE IT'S SET UP. FOR LOOP IS FOR TESTING PURPOSES ONLY.
+// REPLACE THIS FOR LOOP WITH ON CLICK ONCE IT'S SET UP. FOR LOOP IS FOR TESTING PURPOSES ONLY.
+// REPLACE THIS FOR LOOP WITH ON CLICK ONCE IT'S SET UP. FOR LOOP IS FOR TESTING PURPOSES ONLY.
+for (let i = 1; i < 3; i++) {
+  dealPlayerCards();
+  dealDealersCards();
+}
+console.log(playerScore + " This is your score");
+console.log(dealerScore + " This is the dealer's score");
+
+// if score is higher than 21, you bust
+if (playerScore > 21) {
+  console.log("Dealer wins");
+}
+// if dealers goes above 21 you win
+else if (dealerScore > 21) {
+  console.log("You win");
+}
+// if its a tie, push
+else if (playerScore === dealerScore) {
+  console.log("push");
+}
+// if your score is 21 and the dealer's is less than 21, you win
+else if (playerScore === 21 && dealerScore < 21) {
+  console.log("You hit BlackJack");
+}
+// if your score is below 21 and the dealer's score is less than yours, you win
+else if (playerScore <= 21 && dealerScore < playerScore) {
+  console.log("You win");
+}
+// same as previous but for dealer
+else if (dealerScore <= 21 && playerScore < dealerScore) {
+  console.log("dealer wins");
+}
+
+// function to deal the players card
+function dealPlayerCards() {
+  // chooses a random number
+  let randomNumber =
+    deckOfNumbers[Math.floor(Math.random() * deckOfNumbers.length)];
+  // Chooses a random suit
+  let randomSuit = deckOfSuits[Math.floor(Math.random() * deckOfSuits.length)];
+
+  // assigns each of the 4 numbers to a suit
+  if (randomNumber < 10) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: randomNumber,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: randomNumber,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: randomNumber,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: randomNumber,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 10, assign card number to 10
+  else if (randomNumber === 10) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 11, assign card number to 10
+  else if (randomNumber === 11) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 12, assign card number to 10
+  else if (randomNumber === 12) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 13, assign card number to 11 if score won't go over 21.
+  else if (randomNumber === 13 && playerScore + 11 <= 21) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 11,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 11,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 11,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 11,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 13, assign card number to 1 if score will go over 21.
+  else if (randomNumber === 13 && playerScore + 11 > 21) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 1,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 1,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 1,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 1,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  console.log(cardProperties);
+  playerScore += cardProperties.cardNumber;
+}
+
+// function to deal dealer's card
+function dealDealersCards() {
+  // chooses a random number
+  let randomNumber =
+    deckOfNumbers[Math.floor(Math.random() * deckOfNumbers.length)];
+  // Chooses a random suit
+  let randomSuit = deckOfSuits[Math.floor(Math.random() * deckOfSuits.length)];
+
+  // assigns each of the 4 numbers to a suit
+  if (randomNumber < 10) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: randomNumber,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: randomNumber,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: randomNumber,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: randomNumber,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 10, assign card number to 10
+  else if (randomNumber === 10) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 11, assign card number to 10
+  else if (randomNumber === 11) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 12, assign card number to 10
+  else if (randomNumber === 12) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 10,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 13, assign card number to 11 if score won't go over 21.
+  else if (randomNumber === 13 && dealerScore + 11 <= 21) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 11,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 11,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 11,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 11,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  // if random number hits 13, assign card number to 1 if score will go over 21.
+  else if (randomNumber === 13 && dealerScore + 11 > 21) {
+    if (randomSuit === 1) {
+      cardProperties = {
+        cardNumber: 1,
+        cardSuit: "Hearts"
+      };
+    } else if (randomSuit === 2) {
+      cardProperties = {
+        cardNumber: 1,
+        cardSuit: "Spades"
+      };
+    } else if (randomSuit === 3) {
+      cardProperties = {
+        cardNumber: 1,
+        cardSuit: "Clubs"
+      };
+    } else if (randomSuit === 4) {
+      cardProperties = {
+        cardNumber: 1,
+        cardSuit: "Diamonds"
+      };
+    } else {
+      console.log("something went wrong");
+    }
+  }
+  console.log(cardProperties);
+  dealerScore += cardProperties.cardNumber;
+}
 // });
 // // The API object contains methods for each kind of request we'll make
 // var API = {
