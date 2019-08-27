@@ -6,13 +6,16 @@
   <div class="login-box shadow">
    <form action="/login" method='post' class='login-form'>
 
-     <i id='username-input-icon' class='icon-user'></i>
-     <input id="username" autocomplete="off" placeholder="Username" class='dark' type="text" name="username">
+      <input type="text" class="form-control" id="username" placeholder="">
+              </div>
 
-     <i id='password-input-icon' class='icon-lock'></i>
-     <input id="password" autocomplete="off" placeholder="Password" class='dark' type="password" name="password">
+       <div class="form-group">
+                <label for="">password</label>
+                <input type="text" class="form-control" id="password" placeholder="">
+              </div>
 
-    <a href="/index" class="btn btn-danger btn-lg"> Please, login to continue </a>
+    <a href="/index" type="submit" class="btn btn-primary btn-md" id="add-btn">
+                <span class="fa fa-fire"></span> Add to the Force </a>
    
    </form>
 
@@ -22,3 +25,4 @@
 
 
 </div>
+<script src="/js/login.js"></script>
