@@ -4,7 +4,7 @@ $("#add-btn").on("click", function (event) {
     // make a newUser obj
     var newUser = {
         // username from username input
-        userusername: $("#username").val().trim(),
+        username: $("#username").val().trim(),
         // password from password input
         password: $("#password").val().trim(),
 
