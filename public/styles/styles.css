@@ -1,3 +1,22 @@
+body{
+  background-image:url("/assets/images/plain-background.jpeg");
+  background-size: cover;
+  color: rgb(43, 43, 43);
+}
+
+.title-name{
+  margin-top: 25%;
+  padding-top: 10%;
+}
+
+.front-img{
+
+  margin-left: 25%;
+  width: 50%;
+  height: 50%;
+
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -7,7 +26,7 @@ h1 {
   font-family: "Times New Roman", Times, serif;
 }
 
-h3 {
+h4 {
   text-align: center;
   font-family: "Times New Roman", Times, serif;
 }
@@ -16,4 +35,21 @@ form {
   margin-left: 10%;
   margin-right: 10%;
 }
+ 
+/* .login {
+  
+  } */
 
+  .login-box {
+    width: 35%;
+    margin-left: 33%;
+    margin-right: 33%;
+    background-color: white;
+
+  }
+
+   #loginBtn {
+    margin-left: 33%;
+    margin-right: 33%;
+    margin-bottom: 10%;
+  }

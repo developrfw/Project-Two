@@ -1,9 +1,15 @@
-<div id="login">
+<div class="container" id="login">
 
-  <h1><strong>BlackJack User Login</strong> </h1><br>
-  <h3> by WarriorDotJs </h3>
+  {{!-- <h1><strong> BlackJack </strong> </h1><br>
+  <h4> by WarriorDotJs </h4> --}}
 
-  <div class="login-box shadow">
+
+   <div class="login-box shadow container">
+
+    <h1 class="title-name">BlackJack</h1><br>
+
+    <img src="/assets/images/cards/PNG/aces.png" class="front-img">
+
    <form action="/login" method='post' class='login-form'>
 
    <br><br>
@@ -15,8 +21,10 @@
      <input id="password" autocomplete="off" placeholder="Password" class='dark' type="password" name="password">
 
    <br><br>
+     <a class="waves-effect waves-light btn-large" id = "loginBtn"> Login </a>    
     
-    <input type="submit" class='button large' value="Please, login to continue.">
+    
+    {{!-- <input type="submit" class='button large' value="Please, login to continue."> --}}
    
    </form>
 
@@ -27,8 +35,3 @@
 
 </div>
 
-<style>
-  body {
-  background-image:url("public\assets\images\plain-background.jpg");
-  }
-</style>
