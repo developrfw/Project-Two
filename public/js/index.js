@@ -13,6 +13,9 @@ let cardProperties = {};
 let playerScore = 0;
 let dealerScore = 0;
 
+// boolean for game state
+let inProgress = true;
+
 // push 13 numbers to deckOfNumbers
 for (let i = 1; i <= 14; i++) {
   deckOfNumbers.push(i);
@@ -22,62 +25,87 @@ for (let i = 1; i <= 4; i++) {
   deckOfSuits.push(i);
 }
 
-// REPLACE THIS FOR LOOP WITH ON CLICK ONCE IT'S SET UP. FOR LOOP IS FOR TESTING PURPOSES ONLY.
-// REPLACE THIS FOR LOOP WITH ON CLICK ONCE IT'S SET UP. FOR LOOP IS FOR TESTING PURPOSES ONLY.
-// REPLACE THIS FOR LOOP WITH ON CLICK ONCE IT'S SET UP. FOR LOOP IS FOR TESTING PURPOSES ONLY.
-// for (let i = 1; i < 3; i++) {
-//   dealPlayerCards();
-//   dealDealersCards();
-// }
-
 $("#hit").click(function() {
   dealPlayerCards();
-  $("#dealer").html(`<h1>Dealer: ${dealerScore} </h1>`);
-  $("#player").html(`<h1>Player: ${playerScore} </h1>`);
+  $("#dealer").html(`<h1 id='dealer-score'>Dealer: ${dealerScore} </h1>`);
+  $("#player").html(`<h1 id='player-score'>Player: ${playerScore} </h1>`);
   $("#player").append(
-    `<h4>Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
+    `<h4 id="player-cards">Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
   );
   console.log(playerScore + " This is your score");
   console.log(dealerScore + " This is the dealer's score");
   // if score is higher than 21, you bust
   if (playerScore > 21) {
-    alert("Dealer wins");
-  }
-  // if dealers goes above 21 you win
-  else if (dealerScore > 21) {
-    console.log("You win");
-  }
-  // if its a tie, push
-  else if (playerScore === dealerScore) {
-    console.log("push");
-  }
-  // if your score is 21 and the dealer's is less than 21, you win
-  else if (playerScore === 21 && dealerScore < 21) {
-    alert("You win");
-  }
-  // if your score is below 21 and the dealer's score is less than yours, you win
-  else if (playerScore <= 21 && dealerScore < playerScore) {
-    console.log("You win");
-  }
-  // same as previous but for dealer
-  else if (dealerScore <= 21 && playerScore < dealerScore) {
-    console.log("dealer wins");
+    $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
+    setTimeout(() => {
+      $("#win-loss-alert").empty();
+      initGame();
+    }, 3000);
   }
 });
+// if (playerScore > 21) {
+//   setTimeout(() => {
+//     $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
+//   }, 3000);
+// }
+// // if dealers goes above 21 you win
+// else if (dealerScore > 21) {
+//   setTimeout(() => {
+//     $("#win-loss-alert").append("<h1>Player wins!</h1>");
+//   }, 3000);
+// }
+// // if its a tie, push
+// else if (playerScore === dealerScore) {
+//   setTimeout(() => {
+//     $("#win-loss-alert").append("<h1>Push!</h1>");
+//   }, 3000);
+// }
+// // if your score is 21 and the dealer's is less than 21, you win
+// else if (playerScore === 21 && dealerScore < 21) {
+//   setTimeout(() => {
+//     $("#win-loss-alert").append("<h1>Player win!</h1>");
+//   }, 3000);
+// }
+// // if your score is below 21 and the dealer's score is less than yours, you win
+// else if (playerScore <= 21 && dealerScore < playerScore) {
+//   setTimeout(() => {
+//     $("#win-loss-alert").append("<h1>Player win!</h1>");
+//   }, 3000);
+// }
+// // same as previous but for dealer
+// else if (dealerScore <= 21 && playerScore < dealerScore) {
+//   setTimeout(() => {
+//     $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
+//   }, 3000);
+// }
 // Stay button
 $("#stay").click(function() {
-  while (dealerScore < playerScore) {
-    dealDealersCards();
-    $("#dealer").html(`<h1>Dealer: ${dealerScore} </h1>`);
-    $("#dealer").append(
-      `<h4>Dealer cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
-    );
-    if (dealerScore <= 21 && dealerScore > playerScore) {
-      alert("dealer wins");
-    } else if (dealerScore === playerScore) {
-      alert("push");
-    } else if (dealerScore > 21) {
-      alert("Player wins");
+  if (dealerScore <= 17) {
+    while (dealerScore < playerScore) {
+      dealDealersCards();
+      $("#dealer").html(`<h1 id='dealer-score'>Dealer: ${dealerScore} </h1>`);
+      $("#dealer").append(
+        `<h4 id="dealer-cards">Dealer cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
+      );
+      if (dealerScore <= 21 && dealerScore > playerScore) {
+        $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
+        initGame();
+        setTimeout(() => {
+          $("#win-loss-alert").empty();
+        }, 3000);
+      } else if (dealerScore === playerScore) {
+        $("#win-loss-alert").append("<h1>Push!</h1>");
+        initGame();
+        setTimeout(() => {
+          $("#win-loss-alert").empty();
+        }, 3000);
+      } else if (dealerScore > 21) {
+        $("#win-loss-alert").append("<h1>Player wins!</h1>");
+        initGame();
+        setTimeout(() => {
+          $("#win-loss-alert").empty();
+        }, 3000);
+      }
     }
   }
 });
@@ -416,6 +444,19 @@ function dealDealersCards() {
   }
   console.log(cardProperties);
   dealerScore += cardProperties.cardNumber;
+}
+
+function initGame() {
+  setTimeout(() => {
+    $("#dealer-score").text("Dealer: 0");
+  }, 3000);
+  setTimeout(() => {
+    $("#player-score").text("Player: 0");
+  }, 3000);
+  $("#dealer-cards").empty();
+  $("#player-cards").empty();
+  playerScore = 0;
+  dealerScore = 0;
 }
 
 // });

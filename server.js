@@ -1,6 +1,7 @@
 require("dotenv").config();
 var express = require("express");
 var exphbs = require("express-handlebars");
+const routes = require("./routes/loginroutes.js");
 
 var db = require("./models");
 
