@@ -53,7 +53,8 @@ form {
   /* Index.handlebars-------------------------------------- */
 
    #background{
-    background-color: darkgreen;
+    background-image:url("/assets/images/poker-table-felt.png");
+    background-size: cover;
     height: 30%;
     margin: 50px;
     border: solid;
@@ -63,4 +64,9 @@ form {
    #hit-stay{
     margin: auto;
     margin-left: 43%;
+   }
+
+   #bet{
+    margin-left: 4.5%;
+    margin-top: 10px;
    }
