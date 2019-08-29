@@ -10,7 +10,7 @@
 
     <img src="/assets/images/cards/PNG/aces.png" class="front-img">
 
-    <form action="/login" method='post' class='login-form'>
+    <form action="/api/users" method='post' class='login-form'>
 
       <br><br>
 
@@ -21,7 +21,7 @@
       <input id="password" autocomplete="off" placeholder="Password" class='dark' type="text" name="password">
 
       <br><br>
-      <a href="/index" class="waves-effect waves-light btn-large" id="loginBtn"> Login </a>
+      <button class="waves-effect waves-light btn-large" id="loginBtn"> Login </button>
 
 
       {{!-- <input type="submit" class='button large' value="Please, login to continue."> --}}
@@ -34,4 +34,5 @@
 
 
   </div>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   <script src="/js/login.js"></script>
