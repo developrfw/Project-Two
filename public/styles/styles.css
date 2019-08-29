@@ -50,6 +50,10 @@ form {
     margin-bottom: 10%;
   }
 
+  nav {
+    background-color:#f44336;
+  }
+
   /* Index.handlebars-------------------------------------- */
 
    #background{
