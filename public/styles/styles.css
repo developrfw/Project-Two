@@ -36,10 +36,6 @@ form {
   margin-right: 10%;
 }
  
-/* .login {
-  
-  } */
-
   .login-box {
     width: 35%;
     margin-left: 33%;
@@ -53,3 +49,18 @@ form {
     margin-right: 33%;
     margin-bottom: 10%;
   }
+
+  /* Index.handlebars-------------------------------------- */
+
+   #background{
+    background-color: darkgreen;
+    height: 30%;
+    margin: 50px;
+    border: solid;
+    border-color: gray;
+   }
+
+   #hit-stay{
+    margin: auto;
+    margin-left: 43%;
+   }
