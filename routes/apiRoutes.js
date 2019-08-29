@@ -9,24 +9,15 @@ module.exports = function(app) {
   });
 
   // Create a new example
-  app.get("/api/users/:id", function(req, res) {
-    // Find one user with the id in req.params.id and return them to the user with res.json
-    db.user
-      .findOne({
-        where: {
-          id: req.params.id
-        }
-      })
-      .then(function(dbuser) {
-        res.json(dbuser);
-      });
+  app.post("/api/users", function(req, res) {
+    db.user.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
+    });
   });
 
   // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(
-      dbExample
-    ) {
+  app.delete("/users/:id", function(req, res) {
+    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
     });
   });
