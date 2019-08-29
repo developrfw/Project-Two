@@ -50,6 +50,10 @@ form {
     margin-bottom: 10%;
   }
 
+  nav {
+    background-color:#f44336;
+  }
+
   /* Index.handlebars-------------------------------------- */
 
    #background{
@@ -69,4 +73,3 @@ form {
    #bet{
     margin-left: 4.5%;
     margin-top: 10px;
-   }
