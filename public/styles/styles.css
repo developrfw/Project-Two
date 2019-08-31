@@ -51,22 +51,35 @@ form {
   }
 
   nav {
-    background-color:#f44336;
+    background-color:white;
+  }
+
+  .nav-button{
+    color: black;
   }
 
   /* Index.handlebars-------------------------------------- */
 
    #background{
-    background-color: darkgreen;
+    background-image:url("/assets/images/poker-table-felt.png");
+    background-size: cover;
     height: 30%;
-    margin: 50px;
+    margin-top: 50px;
+    margin-left: 200px;
+    margin-right: 200px;
     border: solid;
-    border-color: gray;
+    border-color: white;
+    color: white;
    }
 
    #hit-stay{
     margin: auto;
-    margin-left: 43%;
+    margin-left: 36.5%;
+   }
+
+   #hit,#bet-10,#stay{
+    background-color: white;
+    color: black
    }
 
    
