@@ -27,4 +27,11 @@ module.exports = function(app) {
       res.json(dbExample);
     });
   });
+  app.put("/api/users", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.User.update({
+      credits: req.body.credits
+    });
+  });
 };
