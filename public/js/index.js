@@ -13,6 +13,9 @@ let cardProperties = {};
 let playerScore = 0;
 let dealerScore = 0;
 
+// this will hold the current bet amount
+let playerBet = 0;
+
 // boolean for game state
 let inProgress = true;
 
@@ -25,7 +28,26 @@ for (let i = 1; i <= 4; i++) {
   deckOfSuits.push(i);
 }
 
+// logic for bet 10 button
+$("#bet-10").click(function() {
+  // TO DO: create logic, if playerBet > user credit amount, show error
+  playerBet += 10;
+  $("#bet-amount").text(`Bet Amount: ${playerBet}`);
+});
+$("#bet-20").click(function() {
+  // TO DO: create logic, if playerBet > user credit amount, show error
+  playerBet += 20;
+  $("#bet-amount").text(`Bet Amount: ${playerBet}`);
+});
+$("#bet-50").click(function() {
+  // TO DO: create logic, if playerBet > user credit amount, show error
+  playerBet += 50;
+  $("#bet-amount").text(`Bet Amount: ${playerBet}`);
+});
+
+// logic for hit button
 $("#hit").click(function() {
+  console.log(playerBet);
   dealPlayerCards();
   $("#dealer").html(`<h1 id='dealer-score'>Dealer: ${dealerScore} </h1>`);
   $("#player").html(`<h1 id='player-score'>Player: ${playerScore} </h1>`);
@@ -43,41 +65,7 @@ $("#hit").click(function() {
     }, 3000);
   }
 });
-// if (playerScore > 21) {
-//   setTimeout(() => {
-//     $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
-//   }, 3000);
-// }
-// // if dealers goes above 21 you win
-// else if (dealerScore > 21) {
-//   setTimeout(() => {
-//     $("#win-loss-alert").append("<h1>Player wins!</h1>");
-//   }, 3000);
-// }
-// // if its a tie, push
-// else if (playerScore === dealerScore) {
-//   setTimeout(() => {
-//     $("#win-loss-alert").append("<h1>Push!</h1>");
-//   }, 3000);
-// }
-// // if your score is 21 and the dealer's is less than 21, you win
-// else if (playerScore === 21 && dealerScore < 21) {
-//   setTimeout(() => {
-//     $("#win-loss-alert").append("<h1>Player win!</h1>");
-//   }, 3000);
-// }
-// // if your score is below 21 and the dealer's score is less than yours, you win
-// else if (playerScore <= 21 && dealerScore < playerScore) {
-//   setTimeout(() => {
-//     $("#win-loss-alert").append("<h1>Player win!</h1>");
-//   }, 3000);
-// }
-// // same as previous but for dealer
-// else if (dealerScore <= 21 && playerScore < dealerScore) {
-//   setTimeout(() => {
-//     $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
-//   }, 3000);
-// }
+
 // Stay button
 $("#stay").click(function() {
   if (dealerScore <= 17) {
@@ -92,19 +80,19 @@ $("#stay").click(function() {
         initGame();
         setTimeout(() => {
           $("#win-loss-alert").empty();
-        }, 3000);
+        }, 2000);
       } else if (dealerScore === playerScore) {
         $("#win-loss-alert").append("<h1>Push!</h1>");
         initGame();
         setTimeout(() => {
           $("#win-loss-alert").empty();
-        }, 3000);
+        }, 2000);
       } else if (dealerScore > 21) {
         $("#win-loss-alert").append("<h1>Player wins!</h1>");
         initGame();
         setTimeout(() => {
           $("#win-loss-alert").empty();
-        }, 3000);
+        }, 2000);
       }
     }
   }
@@ -449,10 +437,10 @@ function dealDealersCards() {
 function initGame() {
   setTimeout(() => {
     $("#dealer-score").text("Dealer: 0");
-  }, 3000);
+  }, 2000);
   setTimeout(() => {
     $("#player-score").text("Player: 0");
-  }, 3000);
+  }, 2000);
   $("#dealer-cards").empty();
   $("#player-cards").empty();
   playerScore = 0;
