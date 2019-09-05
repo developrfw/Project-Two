@@ -11,7 +11,8 @@ let dealerScore = 0;
 let playerBet = 0;
 
 // this is the player's current credit
-let playerCredits = $("#credits").text();
+let playerCredits = parseInt($("#credits").text());
+let userId = $("#credits").attr("data-id");
 
 // boolean for game state
 let inProgress = true;
@@ -85,10 +86,17 @@ $("#hit").click(function() {
     $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
     playerCredits = playerCredits - playerBet;
     $("#credits").html(playerCredits);
-    setTimeout(() => {
+    $.ajax({
+      type: 'PUT',
+      url: "/api/users", 
+      data: {"credits": playerCredits, id:userId},
+      success: 
+    
+      () => {
       $("#win-loss-alert").empty();
-      initGame();
-    }, 3000);
+      // initGame();
+      location.reload();
+    }});
   }
 });
 
