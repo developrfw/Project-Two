@@ -4,6 +4,29 @@ body{
   color: rgb(43, 43, 43);
 }
 
+h3{
+  text-align: center;
+  margin-left: 38%; 
+}
+
+.container-users{
+  background-image:url("/assets/images/poker-table-felt.png");
+  background-size: cover;
+  height: 500px;
+  margin-top: 3%;
+  margin-left: 150px;
+  margin-right: 150px;
+  border: solid;
+  border-color: white;
+  color: white;
+}
+
+.row{
+  background-image:url("/assets/images/poker-table-felt.png");
+  background-size: cover;
+  color: white;
+}
+
 .brand-logo{
   width: 110px;
   height: 75px;
