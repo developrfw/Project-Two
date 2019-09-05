@@ -4,6 +4,12 @@ body{
   color: rgb(43, 43, 43);
 }
 
+.brand-logo{
+  width: 110px;
+  height: 75px;
+  margin-left: 10px;
+}
+
 .title-name{
   margin-top: 25%;
   padding-top: 10%;
@@ -50,6 +56,10 @@ form {
     margin-bottom: 10%;
   }
 
+  a{
+    color: black !important;
+  }
+
   nav {
     background-color:white;
   }
@@ -77,9 +87,9 @@ form {
     margin-left: 36.5%;
    }
 
-   #hit,#bet-10,#stay{
+   #hit,#bet-10,#bet-20,#bet-50,#stay{
     background-color: white;
-    color: black
+    color: black;
    }
 
    
