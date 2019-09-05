@@ -76,10 +76,10 @@ $("#hit").click(function() {
   console.log(playerBet);
   dealPlayerCards();
   $("#dealer").html(`<h1 id='dealer-score'>Dealer: ${dealerScore} </h1>`);
-  $("#player").html(`<h1 id='player-score'>Player: ${playerScore} </h1>`);
-  $("#player").append(
-    `<h4 id="player-cards">Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
-  );
+  $("#player-score").html(playerScore);
+  // $("#player").append(
+  //   `<h4 id="player-cards">Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
+  // );
   console.log(playerScore + " This is your score");
   console.log(dealerScore + " This is the dealer's score");
   // if score is higher than 21, you bust
@@ -465,7 +465,7 @@ function initGame() {
     $("#dealer-score").text("Dealer: 0");
   }, 2000);
   setTimeout(() => {
-    $("#player-score").text("Player: 0");
+    $("#player-score").text("0");
   }, 2000);
   $("#dealer-cards").empty();
   $("#player-cards").empty();
