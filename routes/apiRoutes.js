@@ -10,7 +10,13 @@ module.exports = function(app) {
 
   // Create a new example
   app.post("/api/users", function(req, res) {
-    db.user.create(req.body).then(function(dbExample) {
+   // console.log(newUser);
+    //console.log(req.body);
+    var newUser = req.body;
+    newUser.credits = 200;
+    db.user.create(newUser).then(function(dbExample) {
+      
+      console.log(dbExample);
       res.json(dbExample);
     });
   });
@@ -19,6 +25,13 @@ module.exports = function(app) {
   app.delete("/users/:id", function(req, res) {
     db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
+    });
+  });
+  app.put("/api/users", function(req, res) {
+    // Update takes in an object describing the properties we want to update, and
+    // we use where to describe which objects we want to update
+    db.User.update({
+      credits: req.body.credits
     });
   });
 };

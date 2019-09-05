@@ -4,7 +4,7 @@ $("#add-btn").on("click", function(event) {
   // make a newUser obj
   var newUser = {
     // username from username input
-    userusername: $("#username")
+    username: $("#username")
       .val()
       .trim(),
     // password from password input
@@ -19,7 +19,7 @@ $("#add-btn").on("click", function(event) {
     // on success, run this callback
     .then(function(data) {
       // log the data we found
-      console.log(data);
+      console.log("This is my posted New User", data);
       // tell the user we're adding a user with an alert window
       alert("Adding user...");
     });

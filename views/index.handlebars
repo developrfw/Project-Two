@@ -1,16 +1,16 @@
 <nav>
-    <div class="nav-wrapper">
-      <img src="/assets/images/cards/PNG/aces.png" alt="Blackjack Logo" height="42" width="42" class="brand-logo">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/" class="nav-button">Login</a></li>
-        <li><a href="/index" class="nav-button">Play Game</a></li>
-        <li><a href="/api/users" class="nav-button">Highscores</a></li>
-      </ul>
-    </div>
-  </nav>
+  <div class="nav-wrapper">
+    <img src="/assets/images/cards/PNG/aces.png" alt="Blackjack Logo" height="42" width="42" class="brand-logo">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a href="/">Login</a></li>
+      <li><a href="/index">Play Game</a></li>
+      <li><a href="/users">Highscores</a></li>
+    </ul>
+  </div>
+</nav>
 <div id="background">
 
-<div class="container" id="dealer">
+  <div class="container" id="dealer">
     <div class="d-card1" id="dc1"> </div>
     <div class="d-card2" id="dc2"> </div>
     <div class="d-card3" id="dc3"> </div>
@@ -18,35 +18,43 @@
     <div class="d-card5" id="dc5"> </div>
 
     <div class="userName" id="name">
-        <div class="userCredit" id="credits">
+      <div class="userCredit" id="credits">
+        {{"#username"}} <br>
+        {{"#password"}}
 
-        </div>
+      </div>
     </div>
-</div>
+  </div>
 </div>
 
 
 <div class="container">
-    <div id="win-loss-alert">
-    </div>
+  <div id="win-loss-alert">
+  </div>
 </div>
 
 <div id="background">
-<div class="container" id="player">
+  <div class="container" id="player">
     <div class="p-card1" id="pc1"> </div>
     <div class="p-card2" id="pc2"> </div>
     <div class="p-card3" id="pc3"> </div>
     <div class="p-card4" id="pc4"> </div>
     <div class="p-card5" id="pc5"> </div>
-</div>
+  </div>
 
-<div class="container" id="hit-stay">
+  <div class="container" id="hit-stay">
     <a class="waves-effect waves-teal btn-large" id="hit">Hit</a>
     <a class="waves-effect waves-red btn-large" id="stay">Stay</a>
-    <a class="waves-effect waves-red btn-large" id="bet-10">Bet</a>
-</div>
+  </div>
+  <h1 id="bet-amount">Bet Amount: 0</h1>
+  <a class="btn btn-primary btn-sm" id="bet-10">Bet 10</a>
+  <a class="btn btn-primary btn-sm" id="bet-20">Bet 20</a>
+  <a class="btn btn-primary btn-sm" id="bet-50">Bet 50</a>
+
 
 </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script src="/js/index.js"></script>
+<script src="/js/bets.js"></script>
+<script src="/js/login.js"></script>
