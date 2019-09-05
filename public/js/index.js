@@ -113,10 +113,21 @@ $("#stay").click(function() {
         $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
         playerCredits = playerCredits - playerBet;
         $("#credits").html(playerCredits);
-        initGame();
-        setTimeout(() => {
+        $.ajax({
+          type: 'PUT',
+          url: "/api/users", 
+          data: {"credits": playerCredits, id:userId},
+          success: 
+        
+          () => {
           $("#win-loss-alert").empty();
-        }, 2000);
+          // initGame();
+          location.reload();
+        }});
+        // initGame();
+        // setTimeout(() => {
+          // $("#win-loss-alert").empty();
+        // }, 2000);
       } else if (dealerScore === playerScore) {
         $("#win-loss-alert").append("<h1>Push!</h1>");
         initGame();
@@ -127,10 +138,21 @@ $("#stay").click(function() {
         $("#win-loss-alert").append("<h1>Player wins!</h1>");
         playerCredits = playerCredits + playerBet;
         $("#credits").html(playerCredits);
-        initGame();
-        setTimeout(() => {
+        $.ajax({
+          type: 'PUT',
+          url: "/api/users", 
+          data: {"credits": playerCredits, id:userId},
+          success: 
+        
+          () => {
           $("#win-loss-alert").empty();
-        }, 2000);
+          // initGame();
+          location.reload();
+        }});
+        // initGame();
+        // setTimeout(() => {
+          // $("#win-loss-alert").empty();
+        // }, 2000);
       }
     }
   }
