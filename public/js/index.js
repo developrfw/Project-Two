@@ -1,9 +1,3 @@
-// Get references to page elements
-// var $exampleText = $("#example-text");
-// var $exampleDescription = $("#example-description");
-// var $submitBtn = $("#submit");
-// var $exampleList = $("#example-list");
-
 const deckOfNumbers = [];
 const deckOfSuits = [];
 
@@ -30,19 +24,51 @@ for (let i = 1; i <= 4; i++) {
 
 // logic for bet 10 button
 $("#bet-10").click(function() {
-  // TO DO: create logic, if playerBet > user credit amount, show error
   playerBet += 10;
-  $("#bet-amount").text(`Bet Amount: ${playerBet}`);
+  $.get("/api/users", function(data) {
+    if (data[0].credits < playerBet) {
+      alert(`You only have ${data[0].credits} credits in your account`);
+      playerBet = data[0].credits;
+      $("#bet-amount").text(`Bet: ${playerBet}`);
+    } else {
+      console.log(data[0].credits);
+      $("#bet-amount").text(`Bet: ${playerBet}`);
+    }
+  });
 });
+// logic for bet 20 button
 $("#bet-20").click(function() {
-  // TO DO: create logic, if playerBet > user credit amount, show error
   playerBet += 20;
-  $("#bet-amount").text(`Bet Amount: ${playerBet}`);
+  $.get("/api/users", function(data) {
+    if (data[0].credits < playerBet) {
+      alert(`You only have ${data[0].credits} credits in your account`);
+      playerBet = data[0].credits;
+      $("#bet-amount").text(`Bet: ${playerBet}`);
+    } else {
+      console.log(data[0].credits);
+      $("#bet-amount").text(`Bet: ${playerBet}`);
+    }
+  });
 });
+// logic for bet 50 button
 $("#bet-50").click(function() {
-  // TO DO: create logic, if playerBet > user credit amount, show error
   playerBet += 50;
-  $("#bet-amount").text(`Bet Amount: ${playerBet}`);
+  $.get("/api/users", function(data) {
+    if (data[0].credits < playerBet) {
+      alert(`You only have ${data[0].credits} credits in your account`);
+      playerBet = data[0].credits;
+      $("#bet-amount").text(`Bet: ${playerBet}`);
+    } else {
+      console.log(data[0].credits);
+      $("#bet-amount").text(`Bet: ${playerBet}`);
+    }
+  });
+});
+
+// Clears bet on click
+$("#clear-bet").click(function() {
+  playerBet = 0;
+  $("#bet-amount").text(`Bet: ${playerBet}`);
 });
 
 // logic for hit button
