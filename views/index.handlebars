@@ -5,6 +5,11 @@
       <li><a href="/">Login</a></li>
       <li><a href="/index">Play Game</a></li>
       <li><a href="/users">Highscores</a></li>
+      <li>
+        <a href="#">{{user.username}}</a>
+        <div id="credits">{{user.credits}}</div>
+      </li>
+
     </ul>
   </div>
 </nav>
@@ -12,16 +17,6 @@
 
   <div class="container" id="dealer">
     <h1 id='dealer-score'>Dealer: 0</h1>
-
-    <div class="userName" id="name">
-      {{user.username}} <br>
-
-      <div class="userCredit" id="credits">
-
-
-
-      </div>
-    </div>
   </div>
 </div>
 
