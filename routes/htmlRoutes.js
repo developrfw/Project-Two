@@ -7,7 +7,14 @@ module.exports = function(app) {
 
   // Load example page and pass in an example by id
   app.get("/index", function(req, res) {
-    res.render("index");
+    console.log(req.query);
+    db.user.findByPk(req.query.id).then(function(user) {
+      console.log(user.username);
+      res.render("index", {
+        user
+      });
+    });
+   
   });
 
   // Rendering users.handlebars

@@ -1,4 +1,4 @@
-$("#add-btn").on("click", function(event) {
+$("#loginBtn").on("click", function(event) {
   event.preventDefault();
 
   // make a newUser obj
@@ -20,9 +20,13 @@ $("#add-btn").on("click", function(event) {
     .then(function(data) {
       // log the data we found
       console.log("This is my posted New User", data);
+      sessionStorage.setItem("id", data.id);
       // tell the user we're adding a user with an alert window
       alert("Adding user...");
+
+      window.location = "/index?id=" + data.id;
     });
+
 
   // empty each input box by replacing the value with an empty string
   $("#username").val("");
