@@ -1,27 +1,27 @@
-body{
-  background-image:url("/assets/images/plain-background.jpeg");
+body {
+  background-image: url("/assets/images/plain-background.jpeg");
   background-size: cover;
   color: rgb(43, 43, 43);
-  font-family: 'Francois One', sans-serif;
+  font-family: "Francois One", sans-serif;
 }
 
-.cardImg{
+.cardImg {
   width: 100px;
   height: 150px;
   margin-left: 20px;
 }
 
-h3{
+h3 {
   text-align: center;
-  margin-left: 38%; 
+  margin-left: 38%;
 }
 
-.win-loss{
+.win-loss {
   color: white;
 }
 
-.container-users{
-  background-image:url("/assets/images/poker-table-felt.png");
+.container-users {
+  background-image: url("/assets/images/poker-table-felt.png");
   background-size: cover;
   height: 500px;
   margin-top: 3%;
@@ -32,29 +32,27 @@ h3{
   color: white;
 }
 
-.row{
-  background-image:url("/assets/images/poker-table-felt.png");
+.row {
+  background-image: url("/assets/images/poker-table-felt.png");
   background-size: cover;
   color: white;
 }
 
-.brand-logo{
+.brand-logo {
   width: 110px;
   height: 75px;
   margin-left: 10px;
 }
 
-.title-name{
+.title-name {
   margin-top: 5%;
   padding-top: 5%;
 }
 
-.front-img{
-
+.front-img {
   margin-left: 25%;
   width: 50%;
   height: 50%;
-
 }
 
 .list-group-item {
@@ -75,72 +73,60 @@ form {
   margin-left: 10%;
   margin-right: 10%;
 }
- 
-  .login-box {
-    width: 35%;
-    margin-left: 33%;
-    margin-right: 33%;
-    background-color: white;
 
-  }
+.login-box {
+  width: 35%;
+  margin-left: 33%;
+  margin-right: 33%;
+  background-color: white;
+}
 
-   #loginBtn {
-    margin-left: 33%;
-    margin-right: 33%;
-    margin-bottom: 10%;
-  }
+#loginBtn {
+  margin-left: 33%;
+  margin-right: 33%;
+  margin-bottom: 10%;
+}
 
-  a{
-    color: black !important;
-  }
+a {
+  color: black !important;
+}
 
-  nav {
-    background-color:white;
-  }
+nav {
+  background-color: white;
+}
 
-  .nav-button{
-    color: black;
-  }
+.nav-button {
+  color: black;
+}
 
-  /* Index.handlebars-------------------------------------- */
+/* Index.handlebars-------------------------------------- */
 
-   #background{
-    background-image:url("/assets/images/poker-table-felt.png");
-    background-size: cover;
-    height: 30%;
-    margin-top: 50px;
-    margin-left: 200px;
-    margin-right: 200px;
-    border: solid;
-    border-color: white;
-    color: white;
-   }
+#background {
+  background-image: url("/assets/images/poker-table-felt.png");
+  background-size: cover;
+  height: 30%;
+  margin-top: 50px;
+  margin-left: 200px;
+  margin-right: 200px;
+  border: solid;
+  border-color: white;
+  color: white;
+}
 
-   #hit-stay{
-    margin: auto;
-    margin-left: 36.5%;
-   }
+#hit-stay {
+  margin: auto;
+  margin-left: 36.5%;
+}
 
-   #hit,#bet-10,#bet-20,#bet-50,#stay{
-    background-color: white;
-    color: black;
-   }
+#hit,
+#bet-10,
+#bet-20,
+#bet-50,
+#stay {
+  background-color: white;
+  color: black;
+}
 
-   /* Styling for credits */
-
-   #credits {
-    border-style: solid;
-    text-align: justify;
-    letter-spacing: 1px;
-    /* background-color: lightblue; */
-    font-size: 40px;
-    margin: 20px;
-    color: white;
-    float: right;
-    padding: 8px;
-    
-   }
-   
-   .btn {
-     justify-content: center;
-   }
+.btn {
+  justify-content: center;
+}
