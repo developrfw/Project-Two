@@ -16,7 +16,9 @@ h3{
   margin-left: 38%; 
 }
 
-
+.win-loss{
+  color: white;
+}
 
 .container-users{
   background-image:url("/assets/images/poker-table-felt.png");
