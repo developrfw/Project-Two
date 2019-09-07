@@ -87,16 +87,19 @@ $("#hit").click(function() {
     playerCredits = playerCredits - playerBet;
     $("#credits").html(playerCredits);
     $.ajax({
-      type: 'PUT',
-      url: "/api/users", 
-      data: {"credits": playerCredits, id:userId},
-      success: 
-    
-      () => {
-      $("#win-loss-alert").empty();
-      // initGame();
-      location.reload();
-    }});
+      type: "PUT",
+      url: "/api/users",
+      data: { credits: playerCredits, id: userId },
+      success: () => {
+        $("#win-loss-alert").empty();
+        // initGame();
+        setTimeout(() => {
+          $("#win-loss-alert").empty();
+          // initGame();
+          location.reload();
+        }, 2000);
+      }
+    });
   }
 });
 
@@ -114,44 +117,56 @@ $("#stay").click(function() {
         playerCredits = playerCredits - playerBet;
         $("#credits").html(playerCredits);
         $.ajax({
-          type: 'PUT',
-          url: "/api/users", 
-          data: {"credits": playerCredits, id:userId},
-          success: 
-        
-          () => {
-          $("#win-loss-alert").empty();
-          // initGame();
-          location.reload();
-        }});
+          type: "PUT",
+          url: "/api/users",
+          data: { credits: playerCredits, id: userId },
+          success: () => {
+            setTimeout(() => {
+              $("#win-loss-alert").empty();
+              // initGame();
+              location.reload();
+            }, 2000);
+          }
+        });
         // initGame();
         // setTimeout(() => {
-          // $("#win-loss-alert").empty();
+        // $("#win-loss-alert").empty();
         // }, 2000);
       } else if (dealerScore === playerScore) {
         $("#win-loss-alert").append("<h1>Push!</h1>");
-        initGame();
-        setTimeout(() => {
-          $("#win-loss-alert").empty();
-        }, 2000);
+        $.ajax({
+          type: "PUT",
+          url: "/api/users",
+          data: { credits: playerCredits, id: userId },
+          success: () => {
+            setTimeout(() => {
+              $("#win-loss-alert").empty();
+              // initGame();
+              location.reload();
+            }, 2000);
+          }
+        });
       } else if (dealerScore > 21) {
         $("#win-loss-alert").append("<h1>Player wins!</h1>");
         playerCredits = playerCredits + playerBet;
         $("#credits").html(playerCredits);
         $.ajax({
-          type: 'PUT',
-          url: "/api/users", 
-          data: {"credits": playerCredits, id:userId},
-          success: 
-        
-          () => {
-          $("#win-loss-alert").empty();
-          // initGame();
-          location.reload();
-        }});
+          type: "PUT",
+          url: "/api/users",
+          data: { credits: playerCredits, id: userId },
+          success: () => {
+            $("#win-loss-alert").empty();
+            // initGame();
+            setTimeout(() => {
+              $("#win-loss-alert").empty();
+              // initGame();
+              location.reload();
+            }, 2000);
+          }
+        });
         // initGame();
         // setTimeout(() => {
-          // $("#win-loss-alert").empty();
+        // $("#win-loss-alert").empty();
         // }, 2000);
       }
     }
