@@ -76,9 +76,9 @@ $("#hit").click(function() {
   dealPlayerCards();
   $("#dealer").html(`<h1 id='dealer-score'>Dealer: ${dealerScore} </h1>`);
   $("#player-score").html(playerScore);
-  // $("#player").append(
-  //   `<h4 id="player-cards">Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
-  // );
+  $("#player").append(
+    ` <img class="cardImg" src="/assets/images/cards/PNG/${cardProperties.cardSuit}/${cardProperties.cardNumber}.png"> </h4>`
+  );
   console.log(playerScore + " This is your score");
   console.log(dealerScore + " This is the dealer's score");
   // if score is higher than 21, you bust
@@ -110,7 +110,7 @@ $("#stay").click(function() {
       dealDealersCards();
       $("#dealer").html(`<h1 id='dealer-score'>Dealer: ${dealerScore} </h1>`);
       $("#dealer").append(
-        `<h4 id="dealer-cards">Dealer cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
+        `<h4 id="player-cards">Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
       );
       if (dealerScore <= 21 && dealerScore > playerScore) {
         $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
