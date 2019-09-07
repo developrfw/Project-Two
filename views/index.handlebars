@@ -3,6 +3,7 @@
     <img src="/assets/images/cards/PNG/aces.png" alt="Blackjack Logo" height="42" width="42" class="brand-logo">
     <ul id="nav-mobile" class="right hide-on-med-and-down">
       <li>
+
         <a href="#"><i class="fas fa-user-circle dropbtn"></i></a>
       </li>
       <li><a href="#"><i class="fas fa-coins" id="credits" value="{{user.credits}}" data-id="{{user.id}}">
@@ -25,9 +26,10 @@
 </div>
 
 <div id="background">
-  <div class="container" id="player">
-    <h1>{{user.username}}: </h1>
-    <h1 id="player-score">0</h1>
+   <div id="credits" value="{{user.credits}}" data-id="{{user.id}}">{{user.credits}}</div>
+     <div class="container" id="player">
+      <h1>{{user.username}}: </h1>
+      <h1 id="player-score">0</h1>
   </div>
 
   <div class="container" id="hit-stay">

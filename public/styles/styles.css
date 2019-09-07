@@ -2,6 +2,7 @@ body{
   background-image:url("/assets/images/plain-background.jpeg");
   background-size: cover;
   color: rgb(43, 43, 43);
+  font-family: 'Francois One', sans-serif;
 }
 
 .cardImg{
@@ -125,7 +126,21 @@ form {
     color: black;
    }
 
-   /* Styling for credits on  */
-   
+   /* Styling for credits */
 
+   #credits {
+    border-style: solid;
+    text-align: justify;
+    letter-spacing: 1px;
+    /* background-color: lightblue; */
+    font-size: 40px;
+    margin: 20px;
+    color: white;
+    float: right;
+    padding: 8px;
+    
+   }
    
+   .btn {
+     justify-content: center;
+   }
