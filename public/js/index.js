@@ -10,6 +10,10 @@ let dealerScore = 0;
 // this will hold the current bet amount
 let playerBet = 0;
 
+// this is the player's current credit
+let playerCredits = parseInt($("#credits").text());
+let userId = $("#credits").attr("data-id");
+
 // boolean for game state
 let inProgress = true;
 
@@ -25,44 +29,39 @@ for (let i = 1; i <= 4; i++) {
 // logic for bet 10 button
 $("#bet-10").click(function() {
   playerBet += 10;
-  $.get("/api/users", function(data) {
-    if (data[0].credits < playerBet) {
-      alert(`You only have ${data[0].credits} credits in your account`);
-      playerBet = data[0].credits;
-      $("#bet-amount").text(`Bet: ${playerBet}`);
-    } else {
-      console.log(data[0].credits);
-      $("#bet-amount").text(`Bet: ${playerBet}`);
-    }
-  });
+  console.log(playerCredits);
+  if (playerCredits < playerBet) {
+    alert(`You only have ${playerCredits} credits in your account`);
+    playerBet = playerCredits;
+    $("#bet-amount").text(`Bet: ${playerBet}`);
+  } else {
+    console.log(playerCredits);
+    $("#bet-amount").text(`Bet: ${playerBet}`);
+  }
 });
 // logic for bet 20 button
 $("#bet-20").click(function() {
   playerBet += 20;
-  $.get("/api/users", function(data) {
-    if (data[0].credits < playerBet) {
-      alert(`You only have ${data[0].credits} credits in your account`);
-      playerBet = data[0].credits;
-      $("#bet-amount").text(`Bet: ${playerBet}`);
-    } else {
-      console.log(data[0].credits);
-      $("#bet-amount").text(`Bet: ${playerBet}`);
-    }
-  });
+  if (playerCredits < playerBet) {
+    alert(`You only have ${playerCredits} credits in your account`);
+    playerBet = playerCredits;
+    $("#bet-amount").text(`Bet: ${playerBet}`);
+  } else {
+    console.log(playerCredits);
+    $("#bet-amount").text(`Bet: ${playerBet}`);
+  }
 });
 // logic for bet 50 button
 $("#bet-50").click(function() {
   playerBet += 50;
-  $.get("/api/users", function(data) {
-    if (data[0].credits < playerBet) {
-      alert(`You only have ${data[0].credits} credits in your account`);
-      playerBet = data[0].credits;
-      $("#bet-amount").text(`Bet: ${playerBet}`);
-    } else {
-      console.log(data[0].credits);
-      $("#bet-amount").text(`Bet: ${playerBet}`);
-    }
-  });
+  if (playerCredits < playerBet) {
+    alert(`You only have ${playerCredits} credits in your account`);
+    playerBet = playerCredits;
+    $("#bet-amount").text(`Bet: ${playerBet}`);
+  } else {
+    console.log(playerCredits);
+    $("#bet-amount").text(`Bet: ${playerBet}`);
+  }
 });
 
 // Clears bet on click
@@ -76,19 +75,31 @@ $("#hit").click(function() {
   console.log(playerBet);
   dealPlayerCards();
   $("#dealer").html(`<h1 id='dealer-score'>Dealer: ${dealerScore} </h1>`);
-  $("#player").html(`<h1 id='player-score'>Player: ${playerScore} </h1>`);
-  $("#player").append(
-    `<h4 id="player-cards">Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
-  );
+  $("#player-score").html(playerScore);
+  // $("#player").append(
+  //   `<h4 id="player-cards">Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
+  // );
   console.log(playerScore + " This is your score");
   console.log(dealerScore + " This is the dealer's score");
   // if score is higher than 21, you bust
   if (playerScore > 21) {
     $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
-    setTimeout(() => {
-      $("#win-loss-alert").empty();
-      initGame();
-    }, 3000);
+    playerCredits = playerCredits - playerBet;
+    $("#credits").html(playerCredits);
+    $.ajax({
+      type: "PUT",
+      url: "/api/users",
+      data: { credits: playerCredits, id: userId },
+      success: () => {
+        $("#win-loss-alert").empty();
+        // initGame();
+        setTimeout(() => {
+          $("#win-loss-alert").empty();
+          // initGame();
+          location.reload();
+        }, 2000);
+      }
+    });
   }
 });
 
@@ -103,22 +114,60 @@ $("#stay").click(function() {
       );
       if (dealerScore <= 21 && dealerScore > playerScore) {
         $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
-        initGame();
-        setTimeout(() => {
-          $("#win-loss-alert").empty();
-        }, 2000);
+        playerCredits = playerCredits - playerBet;
+        $("#credits").html(playerCredits);
+        $.ajax({
+          type: "PUT",
+          url: "/api/users",
+          data: { credits: playerCredits, id: userId },
+          success: () => {
+            setTimeout(() => {
+              $("#win-loss-alert").empty();
+              // initGame();
+              location.reload();
+            }, 2000);
+          }
+        });
+        // initGame();
+        // setTimeout(() => {
+        // $("#win-loss-alert").empty();
+        // }, 2000);
       } else if (dealerScore === playerScore) {
         $("#win-loss-alert").append("<h1>Push!</h1>");
-        initGame();
-        setTimeout(() => {
-          $("#win-loss-alert").empty();
-        }, 2000);
+        $.ajax({
+          type: "PUT",
+          url: "/api/users",
+          data: { credits: playerCredits, id: userId },
+          success: () => {
+            setTimeout(() => {
+              $("#win-loss-alert").empty();
+              // initGame();
+              location.reload();
+            }, 2000);
+          }
+        });
       } else if (dealerScore > 21) {
         $("#win-loss-alert").append("<h1>Player wins!</h1>");
-        initGame();
-        setTimeout(() => {
-          $("#win-loss-alert").empty();
-        }, 2000);
+        playerCredits = playerCredits + playerBet;
+        $("#credits").html(playerCredits);
+        $.ajax({
+          type: "PUT",
+          url: "/api/users",
+          data: { credits: playerCredits, id: userId },
+          success: () => {
+            $("#win-loss-alert").empty();
+            // initGame();
+            setTimeout(() => {
+              $("#win-loss-alert").empty();
+              // initGame();
+              location.reload();
+            }, 2000);
+          }
+        });
+        // initGame();
+        // setTimeout(() => {
+        // $("#win-loss-alert").empty();
+        // }, 2000);
       }
     }
   }
@@ -465,7 +514,7 @@ function initGame() {
     $("#dealer-score").text("Dealer: 0");
   }, 2000);
   setTimeout(() => {
-    $("#player-score").text("Player: 0");
+    $("#player-score").text("0");
   }, 2000);
   $("#dealer-cards").empty();
   $("#player-cards").empty();
