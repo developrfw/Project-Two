@@ -1,49 +1,53 @@
-  {{!-- <h1><strong> BlackJack </strong> </h1><br>
+{{!-- <h1><strong> BlackJack </strong> </h1><br>
   <h4> by WarriorDotJs </h4> --}}
 
-  {{!-- materilaize navbar for navigation of site --}}
+{{!-- materilaize navbar for navigation of site --}}
 <nav>
-    <div class="nav-wrapper">
-      <img src="/assets/images/cards/PNG/aces.png" alt="Blackjack Logo" height="42" width="42" class="brand-logo">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/">Login</a></li>
-        <li><a href="/users">Highscores</a></li>
-      </ul>
-    </div>
-  </nav>
-  
-  <div class="container" id="login"></div>
-
-  <div class="login-box shadow container">
-
-    <h1 class="title-name">BlackJack</h1><br>
-
-    <img src="/assets/images/cards/PNG/aces.png" class="front-img">
-
-    <form action="/api/users" method='post' class='login-form'>
-
-      <br><br>
-
-      <i id='username-input-icon' class='icon-user'></i>
-      <input id="username" autocomplete="off" placeholder="Username" class='dark' type="text" name="username">
-
-      <i id='password-input-icon' class='icon-user'></i>
-      <input id="password" autocomplete="off" placeholder="Password" class='dark' type="text" name="password">
-
-      <br><br>
-      <button class="waves-effect waves-light btn-large" id="loginBtn"> Login </button>
-
-      
-
-      {{!-- <input type="submit" class='button large' value="Please, login to continue."> --}}
-
-    </form>
-
+  <div class="nav-wrapper">
+    <img src="/assets/images/cards/PNG/aces.png" alt="Blackjack Logo" height="42" width="42" class="brand-logo">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+        <a href="#"><i class="fas fa-user-circle dropbtn"></i></a>
+      </li>
+      <li><a href="#"><i class="fas fa-coins" id="credits" value="{{user.credits}}" data-id="{{user.id}}">
+            {{user.credits}}</i></a>
+      </li>
+    </ul>
   </div>
+</nav>
 
-  <div class="login-footer">
+<div class="container" id="login"></div>
+
+<div class="login-box shadow container">
+
+  <h1 class="title-name">BlackJack</h1><br>
+
+  <img src="/assets/images/cards/PNG/aces.png" class="front-img">
+
+  <form action="/api/users" method='post' class='login-form'>
+
+    <br><br>
+
+    <i id='username-input-icon' class='icon-user'></i>
+    <input id="username" autocomplete="off" placeholder="Username" class='dark' type="text" name="username">
+
+    <i id='password-input-icon' class='icon-user'></i>
+    <input id="password" autocomplete="off" placeholder="Password" class='dark' type="text" name="password">
+
+    <br><br>
+    <button class="waves-effect waves-light btn-large" id="loginBtn"> Login </button>
 
 
-  </div>
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-  <script src="/js/login.js"></script>
+
+    {{!-- <input type="submit" class='button large' value="Please, login to continue."> --}}
+
+  </form>
+
+</div>
+
+<div class="login-footer">
+
+
+</div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/js/login.js"></script>

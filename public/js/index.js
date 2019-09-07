@@ -91,7 +91,6 @@ $("#hit").click(function() {
       url: "/api/users",
       data: { credits: playerCredits, id: userId },
       success: () => {
-        $("#win-loss-alert").empty();
         // initGame();
         setTimeout(() => {
           $("#win-loss-alert").empty();
