@@ -83,7 +83,7 @@ $("#hit").click(function() {
   console.log(dealerScore + " This is the dealer's score");
   // if score is higher than 21, you bust
   if (playerScore > 21) {
-    $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
+    $("#win-loss-alert").append("<h1 class=win-loss>Dealer wins!</h1>");
     playerCredits = playerCredits - playerBet;
     $("#credits").html(playerCredits);
     $.ajax({
@@ -113,7 +113,7 @@ $("#stay").click(function() {
         `<h4 id="player-cards">Player cards: ${cardProperties.cardNumber} ${cardProperties.cardSuit} </h4>`
       );
       if (dealerScore <= 21 && dealerScore > playerScore) {
-        $("#win-loss-alert").append("<h1>Dealer wins!</h1>");
+        $("#win-loss-alert").append("<h1 class=win-loss>Dealer wins!</h1>");
         playerCredits = playerCredits - playerBet;
         $("#credits").html(playerCredits);
         $.ajax({
@@ -147,7 +147,7 @@ $("#stay").click(function() {
           }
         });
       } else if (dealerScore > 21) {
-        $("#win-loss-alert").append("<h1>Player wins!</h1>");
+        $("#win-loss-alert").append("<h1 class=win-loss>Player wins!</h1>");
         playerCredits = playerCredits + playerBet;
         $("#credits").html(playerCredits);
         $.ajax({
