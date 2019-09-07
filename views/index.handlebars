@@ -6,7 +6,7 @@
       <li><a href="/users">Highscores</a></li>
       <li>
         <a href="#">{{user.username}}</a>
-        <div id="credits" value="{{user.credits}}" data-id="{{user.id}}">{{user.credits}}</div>
+        
       </li>
 
     </ul>
@@ -26,9 +26,10 @@
 </div>
 
 <div id="background">
-  <div class="container" id="player">
-    <h1>{{user.username}}: </h1>
-    <h1 id="player-score">0</h1>
+   <div id="credits" value="{{user.credits}}" data-id="{{user.id}}">{{user.credits}}</div>
+     <div class="container" id="player">
+      <h1>{{user.username}}: </h1>
+      <h1 id="player-score">0</h1>
   </div>
 
   <div class="container" id="hit-stay">
