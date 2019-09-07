@@ -1,34 +1,39 @@
 <nav>
-    <div class="nav-wrapper">
-      <img src="/assets/images/cards/PNG/aces.png" alt="Blackjack Logo" height="42" width="42" class="brand-logo">
-      <ul id="nav-mobile" class="right hide-on-med-and-down">
-        <li><a href="/" class="nav-button">Login</a></li>
-        <li><a href="/api/users" class="nav-button">Highscores</a></li>
-    </div>
-  </nav>
-  
-  <div class = "credits">    </div>
+  <div class="nav-wrapper">
+    <img src="/assets/images/cards/PNG/aces.png" alt="Blackjack Logo" height="42" width="42" class="brand-logo">
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li>
+        <a href="#"><i class="fas fa-user-circle dropbtn"></i></a>
+      </li>
+      <li><a href="#"><i class="fas fa-coins" id="credits" value="{{user.credits}}" data-id="{{user.id}}">
+            {{user.credits}}</i></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="credits"> </div>
 
 <div class="container-users">
   <div class="row">
     <h3 class="col">Highscores</h3>
   </div>
-    <ul>
-<table class="responsive-table centered">
-        <thead>
-          <tr>
-              <th>Player</th>
-              <th>Chip Stack</th>
-          </tr>
-        </thead>
+  <ul>
+    <table class="responsive-table centered">
+      <thead>
+        <tr>
+          <th>Player</th>
+          <th>Chip Stack</th>
+        </tr>
+      </thead>
 
-        <tbody>
-          <tr>
-            <td>""</td>
-            <td>""</td>
-        </tbody>
-</table>
+      <tbody>
+        <tr>
+          <td>""</td>
+          <td>""</td>
+      </tbody>
+    </table>
 </div>
-  {{!-- {{#each users}}
+{{!-- {{#each users}}
 
   {{/each}} --}}

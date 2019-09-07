@@ -2,13 +2,12 @@
   <div class="nav-wrapper">
     <img src="/assets/images/cards/PNG/aces.png" alt="Blackjack Logo" height="42" width="42" class="brand-logo">
     <ul id="nav-mobile" class="right hide-on-med-and-down">
-      <li><a href="/">Login</a></li>
-      <li><a href="/users">Highscores</a></li>
       <li>
-        <a href="#">{{user.username}}</a>
-        <div id="credits" value="{{user.credits}}" data-id="{{user.id}}">{{user.credits}}</div>
+        <a href="#"><i class="fas fa-user-circle dropbtn"></i></a>
       </li>
-
+      <li><a href="#"><i class="fas fa-coins" id="credits" value="{{user.credits}}" data-id="{{user.id}}">
+            {{user.credits}}</i></a>
+      </li>
     </ul>
   </div>
 </nav>
